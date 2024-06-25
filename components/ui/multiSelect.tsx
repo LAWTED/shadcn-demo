@@ -1,19 +1,3 @@
-"use client";
-import MultiSelect from "@/components/ui/multiSelect";
-
-import Image from "next/image";
-import { useState } from "react";
-
-export default function Home() {
-  const options = [
-    { value: "1", label: "熊大" },
-    { value: "2", label: "熊二" },
-    { value: "3", label: "光头强" },
-  ];
-
-  const [value, setValue] = useState<string[] | string>("");
-
-  const multiSelectCode = `
 import { CaretSortIcon, CheckIcon, Cross2Icon } from "@radix-ui/react-icons";
 import * as React from "react";
 
@@ -230,26 +214,3 @@ const MultiSelect = React.forwardRef<HTMLInputElement, MultiSelectProps>(
 MultiSelect.displayName = "MultiSelect";
 
 export default MultiSelect;
-
-
-  `;
-
-  return (
-    <main className="flex min-h-screen flex-col items-center gap-10 p-24">
-      <h1 className="text-4xl font-bold">MultiSelect</h1>
-      <MultiSelect
-        options={options}
-        value={value}
-        onChange={(value) => setValue(value)}
-        placeholder="请选择负责人"
-        inputPlaceholder="请输入关键词搜索"
-        emptyPlaceholder="暂无数据"
-        multiple
-        className="min-w-72"
-      />
-      <pre className="w-1/2 h-72 overflow-auto ">
-        <code>{multiSelectCode}</code>
-      </pre>
-    </main>
-  );
-}
